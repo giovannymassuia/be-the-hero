@@ -7,7 +7,7 @@ module.exports = {
         const [ count ] = await connection('incidents').count()
 
         const incidents = await connection('incidents')
-            .select('incidents.*', 'ongs.name', 'ongs.email', 'ongs.whatsapp', 'ongs.uf')
+            .select('incidents.*', 'ongs.name', 'ongs.email', 'ongs.whatsapp', 'ongs.city', 'ongs.uf')
             .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
             .limit(5)
             .offset((page -1) * 5)
